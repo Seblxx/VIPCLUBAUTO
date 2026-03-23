@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import IntroVideo from '../components/IntroVideo';
 import Hero from '../components/Hero';
+import { useLanguage } from '../App';
 import './HomePage.css';
 
 const HomePage = () => {
-  const [showIntro, setShowIntro] = useState(true);
+  const { introPlayed, handleIntroComplete } = useLanguage();
 
-  const handleIntroComplete = () => {
-    setShowIntro(false);
-  };
-
-  if (showIntro) {
+  if (!introPlayed) {
     return <IntroVideo onComplete={handleIntroComplete} />;
   }
 
@@ -22,26 +20,17 @@ const HomePage = () => {
       <section className="home-overview">
         <div className="container">
           <div className="overview-grid">
-            <div className="overview-card">
-              <div className="card-number">01</div>
-              <h3>Services Premium</h3>
-              <p>Du lavage extérieur au traitement céramique, découvrez nos services d'exception.</p>
-              <a href="/services" className="card-link">Découvrir →</a>
-            </div>
+            <Link to="/services" className="overview-link">
+              <h2>SERVICES</h2>
+            </Link>
             
-            <div className="overview-card">
-              <div className="card-number">02</div>
-              <h3>Notre Portfolio</h3>
-              <p>Explorez nos réalisations et laissez-vous inspirer par notre excellence.</p>
-              <a href="/portfolio" className="card-link">Voir le portfolio →</a>
-            </div>
+            <Link to="/portfolio" className="overview-link">
+              <h2>PORTFOLIO</h2>
+            </Link>
             
-            <div className="overview-card">
-              <div className="card-number">03</div>
-              <h3>Rejoignez-Nous</h3>
-              <p>Faites partie d'une équipe passionnée par l'excellence automobile.</p>
-              <a href="/careers" className="card-link">Postes disponibles →</a>
-            </div>
+            <Link to="/careers" className="overview-link">
+              <h2>CARRIÈRES</h2>
+            </Link>
           </div>
         </div>
       </section>

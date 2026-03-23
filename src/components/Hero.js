@@ -34,16 +34,6 @@ const Hero = () => {
         >
           {t.hero.subtitle}
         </motion.p>
-        
-        <motion.div 
-          className="hero-buttons"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.2 }}
-        >
-          <a href="#contact" className="btn btn-secondary">{t.hero.writeUs}</a>
-          <a href="#services" className="btn btn-primary">{t.hero.bookAppointment}</a>
-        </motion.div>
       </div>
     </section>
   );

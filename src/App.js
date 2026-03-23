@@ -33,6 +33,9 @@ export const useLanguage = () => {
 function App() {
   const [scrolled, setScrolled] = useState(false);
   const [language, setLanguage] = useState('fr'); // Default to French
+  const [introPlayed, setIntroPlayed] = useState(
+    sessionStorage.getItem('introPlayed') === 'true'
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,9 +51,14 @@ function App() {
   };
 
   const t = translations[language];
+  
+  const handleIntroComplete = () => {
+    setIntroPlayed(true);
+    sessionStorage.setItem('introPlayed', 'true');
+  };
 
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
+    <LanguageContext.Provider value={{ language, toggleLanguage, t, introPlayed, handleIntroComplete }}>
       <Router>
         <ScrollToTop />
         <div className="App">
@@ -63,7 +71,12 @@ function App() {
                 <li><Link to="/services">{t.nav.services}</Link></li>
                 <li><Link to="/portfolio">{t.nav.portfolio}</Link></li>
                 <li><Link to="/careers">{t.nav.careers}</Link></li>
-                <li><Link to="/contact" className="nav-cta">{t.nav.contact}</Link></li>
+                <li><Link to="/contact">{t.nav.contact}</Link></li>
+                <li>
+                  <Link to="/contact" className="nav-book-btn">
+                    {language === 'fr' ? 'Réserver' : 'Book'}
+                  </Link>
+                </li>
                 <li>
                   <button className="language-toggle" onClick={toggleLanguage}>
                     {language === 'fr' ? 'EN' : 'FR'}

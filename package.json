@@ -14,10 +14,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && npm run postbuild",
-    "postbuild": "copy serve.json build\\serve.json",
+    "postbuild": "echo {\"rewrites\": [{\"source\": \"**\", \"destination\": \"/index.html\"}]} > build\\serve.json",
     "serve": "serve -s build -l 3000",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "node scripts/fix-hmr.js"
   },
   "eslintConfig": {
     "extends": [
