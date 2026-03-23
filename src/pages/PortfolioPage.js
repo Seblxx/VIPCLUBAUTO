@@ -137,7 +137,7 @@ const PortfolioPage = () => {
         <div className="container">
           <h2>Votre Véhicule Mérite Le Meilleur</h2>
           <p>Rejoignez des centaines de clients satisfaits qui nous font confiance.</p>
-          <a href="/#contact" className="btn btn-primary">Réserver Un Service</a>
+          <a href="/rendez-vous" className="btn btn-primary">Réserver Un Service</a>
         </div>
       </section>
     </div>

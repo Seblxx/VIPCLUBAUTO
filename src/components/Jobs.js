@@ -77,7 +77,7 @@ const Jobs = () => {
           <div className="jobs-cta">
             <h3>{t.jobs.cta.title}</h3>
             <p>{t.jobs.cta.subtitle}</p>
-            <a href="#contact" className="btn btn-primary">{t.jobs.cta.button}</a>
+            <a href="/rendez-vous" className="btn btn-primary">{t.jobs.cta.button}</a>
           </div>
         </Reveal>
       </div>

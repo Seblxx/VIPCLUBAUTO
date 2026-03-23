@@ -65,7 +65,7 @@ const ServicesPage = () => {
                 <li>✓ Service rapide sans compromis sur la qualité</li>
                 <li>✓ Protection longue durée de votre investissement</li>
               </ul>
-              <a href="/#contact" className="btn btn-primary">Réserver Maintenant</a>
+              <a href="/rendez-vous" className="btn btn-primary">Réserver Maintenant</a>
             </div>
             <div className="benefits-image">
               <img src="/MISC IV.png" alt="Excellence VIP Club" />

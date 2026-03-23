@@ -55,7 +55,7 @@ const Showcase = () => {
         <Reveal delay={0.3}>
           <div className="showcase-cta">
             <h3>{t.showcase.cta.title}</h3>
-            <a href="#contact" className="btn btn-primary">{t.showcase.cta.button}</a>
+            <a href="/rendez-vous" className="btn btn-primary">{t.showcase.cta.button}</a>
           </div>
         </Reveal>
       </div>

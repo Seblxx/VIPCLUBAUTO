@@ -5,6 +5,7 @@ import ServicesPage from './pages/ServicesPage';
 import PortfolioPage from './pages/PortfolioPage';
 import CareersPage from './pages/CareersPage';
 import ContactPage from './pages/ContactPage';
+import BookingPage from './pages/BookingPage';
 import { translations } from './translations';
 import './App.css';
 
@@ -73,9 +74,9 @@ function App() {
                 <li><Link to="/careers">{t.nav.careers}</Link></li>
                 <li><Link to="/boutique">{t.nav.contact}</Link></li>
                 <li>
-                  <a href="#contact" className="nav-book-btn" onClick={(e) => { e.preventDefault(); const el = document.getElementById('contact'); if (el) { el.scrollIntoView({ behavior: 'smooth' }); } else { window.location.href = '/#contact'; } }}>
+                  <Link to="/rendez-vous" className="nav-book-btn">
                     {language === 'fr' ? 'Réserver' : 'Book'}
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <button className="language-toggle" onClick={toggleLanguage}>
@@ -92,6 +93,7 @@ function App() {
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/careers" element={<CareersPage />} />
             <Route path="/boutique" element={<ContactPage />} />
+            <Route path="/rendez-vous" element={<BookingPage />} />
           </Routes>
         </div>
       </Router>

@@ -20,6 +20,7 @@ const HomePage = () => {
   const { t, introPlayed, handleIntroComplete } = useLanguage();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTestimonial(prev => (prev + 1) % testimonials.length);
@@ -110,8 +111,6 @@ const HomePage = () => {
         </div>
       </section>
 
-
-
       {/* CTA Section */}
       <section className="home-cta">
         <div className="container">
@@ -119,7 +118,7 @@ const HomePage = () => {
             <h2>Prêt Pour L'Expérience VIP ?</h2>
             <p>Réservez dès maintenant et découvrez ce que signifie vraiment le luxe automobile.</p>
             <div className="cta-buttons">
-              <a href="#contact" className="btn btn-primary">Prendre Rendez-Vous</a>
+              <Link to="/rendez-vous" className="btn btn-primary">Prendre Rendez-Vous</Link>
               <a href="/services" className="btn btn-secondary">Voir Les Services</a>
             </div>
           </div>
