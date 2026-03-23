@@ -132,7 +132,7 @@ const CareersPage = () => {
                       </ul>
                     </div>
                     
-                    <a href="/contact" className="btn btn-primary">Postuler Maintenant</a>
+                    <a href="/#contact" className="btn btn-primary">Postuler Maintenant</a>
                   </div>
                 </div>
               </Reveal>
@@ -182,7 +182,7 @@ const CareersPage = () => {
         <div className="container">
           <h2>Prêt À Rejoindre L'Excellence ?</h2>
           <p>Envoyez-nous votre candidature et devenez partie de la famille VIP Club Auto.</p>
-          <a href="/contact" className="btn btn-primary">Contactez-Nous</a>
+          <a href="/#contact" className="btn btn-primary">Contactez-Nous</a>
         </div>
       </section>
     </div>

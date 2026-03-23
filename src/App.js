@@ -71,11 +71,11 @@ function App() {
                 <li><Link to="/services">{t.nav.services}</Link></li>
                 <li><Link to="/portfolio">{t.nav.portfolio}</Link></li>
                 <li><Link to="/careers">{t.nav.careers}</Link></li>
-                <li><Link to="/contact">{t.nav.contact}</Link></li>
+                <li><Link to="/boutique">{t.nav.contact}</Link></li>
                 <li>
-                  <Link to="/contact" className="nav-book-btn">
+                  <a href="#contact" className="nav-book-btn" onClick={(e) => { e.preventDefault(); const el = document.getElementById('contact'); if (el) { el.scrollIntoView({ behavior: 'smooth' }); } else { window.location.href = '/#contact'; } }}>
                     {language === 'fr' ? 'Réserver' : 'Book'}
-                  </Link>
+                  </a>
                 </li>
                 <li>
                   <button className="language-toggle" onClick={toggleLanguage}>
@@ -91,7 +91,7 @@ function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/careers" element={<CareersPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/boutique" element={<ContactPage />} />
           </Routes>
         </div>
       </Router>

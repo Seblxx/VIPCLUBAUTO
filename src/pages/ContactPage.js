@@ -1,20 +1,17 @@
 import React from 'react';
-import Contact from '../components/Contact';
 import './ContactPage.css';
 
 const ContactPage = () => {
   return (
     <div className="contact-page">
-      {/* Hero Section */}
-      <section className="contact-hero">
-        <div className="contact-hero-content">
-          <h1 className="contact-hero-title">CONTACTEZ-NOUS</h1>
-          <p className="contact-hero-subtitle">Nous Sommes À Votre Service</p>
+      <section className="boutique-coming-soon">
+        <div className="coming-soon-content">
+          <h1 className="coming-soon-title">BOUTIQUE</h1>
+          <div className="coming-soon-divider"></div>
+          <p className="coming-soon-text">Bientôt Disponible</p>
+          <p className="coming-soon-subtitle">Notre boutique en ligne arrive prochainement. Restez à l'affût!</p>
         </div>
       </section>
-
-      {/* Contact Component */}
-      <Contact />
     </div>
   );
 };

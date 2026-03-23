@@ -5,7 +5,7 @@ export const translations = {
       services: "Services",
       portfolio: "Portfolio",
       careers: "Carrières",
-      contact: "Contact"
+      contact: "Boutique"
     },
     
     // Hero Section
@@ -13,7 +13,7 @@ export const translations = {
       welcome: "BIENVENUE DANS",
       experience: "L'EXPÉRIENCE",
       vip: "VIP.",
-      subtitle: "Une plateforme à la hauteur arrive bientôt.",
+      subtitle: "L'excellence commence ici",
       writeUs: "ÉCRIVEZ-NOUS",
       bookAppointment: "PRENDRE RENDEZ-VOUS",
       excellence: "L'excellence commence ici"
@@ -458,7 +458,7 @@ export const translations = {
       services: "Services",
       portfolio: "Portfolio",
       careers: "Careers",
-      contact: "Contact"
+      contact: "Boutique"
     },
     
     // Hero Section

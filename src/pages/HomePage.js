@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import IntroVideo from '../components/IntroVideo';
 import Hero from '../components/Hero';
+import Reveal from '../components/Reveal';
 import { useLanguage } from '../App';
+import { FaQuoteLeft, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './HomePage.css';
 
+const testimonials = [
+  { name: 'Marc D.', text: 'Un service impeccable! Ma voiture n\'a jamais été aussi propre. L\'équipe VIP Club est vraiment professionnelle.', stars: 5 },
+  { name: 'Sophie L.', text: 'Je recommande à 100%. Le détaillage intérieur est incroyable, on dirait une voiture neuve!', stars: 5 },
+  { name: 'Jean-Pierre R.', text: 'Excellent rapport qualité-prix. Le traitement céramique a transformé la peinture de mon véhicule.', stars: 5 },
+  { name: 'Isabelle M.', text: 'Service client exceptionnel et résultats au-delà de mes attentes. Je suis cliente fidèle depuis 3 ans.', stars: 5 },
+  { name: 'Alexandre B.', text: 'Les meilleurs dans la région! Ils traitent chaque véhicule comme si c\'était le leur.', stars: 5 },
+];
+
 const HomePage = () => {
-  const { introPlayed, handleIntroComplete } = useLanguage();
+  const { t, introPlayed, handleIntroComplete } = useLanguage();
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTestimonial(prev => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   if (!introPlayed) {
     return <IntroVideo onComplete={handleIntroComplete} />;
@@ -52,15 +71,46 @@ const HomePage = () => {
                 <span>Perfection Dans Les Détails</span>
               </div>
             </div>
-            <div className="featured-item">
-              <img src="/MISC III.png" alt="Excellence" />
-              <div className="featured-overlay">
-                <span>Innovation & Qualité</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
+
+      {/* Testimonials Carousel */}
+      <section className="home-testimonials">
+        <div className="container">
+          <h2 className="testimonials-title">CE QUE NOS CLIENTS <span className="gold-text">DISENT</span></h2>
+          <div className="testimonials-carousel">
+            <button className="carousel-btn prev" onClick={() => setCurrentTestimonial(prev => (prev - 1 + testimonials.length) % testimonials.length)}>
+              <FaChevronLeft />
+            </button>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentTestimonial}
+                className="testimonial-card"
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
+              >
+                <FaQuoteLeft className="quote-icon" />
+                <p className="testimonial-text">{testimonials[currentTestimonial].text}</p>
+                <div className="testimonial-stars">{'★'.repeat(testimonials[currentTestimonial].stars)}</div>
+                <p className="testimonial-name">— {testimonials[currentTestimonial].name}</p>
+              </motion.div>
+            </AnimatePresence>
+            <button className="carousel-btn next" onClick={() => setCurrentTestimonial(prev => (prev + 1) % testimonials.length)}>
+              <FaChevronRight />
+            </button>
+          </div>
+          <div className="carousel-dots">
+            {testimonials.map((_, i) => (
+              <button key={i} className={`dot ${i === currentTestimonial ? 'active' : ''}`} onClick={() => setCurrentTestimonial(i)} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+
 
       {/* CTA Section */}
       <section className="home-cta">
@@ -69,12 +119,29 @@ const HomePage = () => {
             <h2>Prêt Pour L'Expérience VIP ?</h2>
             <p>Réservez dès maintenant et découvrez ce que signifie vraiment le luxe automobile.</p>
             <div className="cta-buttons">
-              <a href="/contact" className="btn btn-primary">Prendre Rendez-Vous</a>
+              <a href="#contact" className="btn btn-primary">Prendre Rendez-Vous</a>
               <a href="/services" className="btn btn-secondary">Voir Les Services</a>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="container">
+          <Reveal delay={0.2}>
+            <div className="footer-content">
+              <div className="footer-logo">
+                <img src="/logo-lave-auto-vip-club-scaled.png" alt="VIP Club Auto" />
+                <p>{t.contact.footer.tagline}</p>
+              </div>
+              <p className="footer-copyright">
+                © {new Date().getFullYear()} {t.contact.footer.copyright}
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </footer>
     </div>
   );
 };

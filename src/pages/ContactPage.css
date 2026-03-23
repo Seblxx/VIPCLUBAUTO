@@ -3,82 +3,58 @@
   background: #000000;
 }
 
-/* Contact Hero */
-.contact-hero {
-  position: relative;
-  height: 40vh;
-  min-height: 300px;
+/* Boutique Coming Soon */
+.boutique-coming-soon {
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0a0a0a 0%, #000000 100%);
-  overflow: hidden;
+  padding: 8rem 2rem;
 }
 
-.contact-hero::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  height: 80%;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
-  animation: pulse 4s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.5;
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.1);
-    opacity: 0.8;
-  }
-}
-
-.contact-hero-content {
-  position: relative;
-  z-index: 2;
+.coming-soon-content {
   text-align: center;
-  padding: 2rem;
+  max-width: 600px;
 }
 
-.contact-hero-title {
+.coming-soon-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(3rem, 8vw, 5rem);
   font-weight: 800;
   color: #D4AF37;
-  margin-bottom: 1rem;
-  letter-spacing: 4px;
+  letter-spacing: 8px;
   text-transform: uppercase;
-  animation: fadeInUp 1s ease;
+  margin-bottom: 1.5rem;
 }
 
-.contact-hero-subtitle {
+.coming-soon-divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  margin: 0 auto 1.5rem;
+}
+
+.coming-soon-text {
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(1.2rem, 3vw, 1.8rem);
   color: #ffffff;
   font-weight: 300;
-  letter-spacing: 2px;
-  animation: fadeInUp 1s ease 0.2s backwards;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.coming-soon-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  color: #B8B8B8;
+  font-weight: 300;
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
-  .contact-hero {
-    height: 35vh;
-    min-height: 250px;
+  .boutique-coming-soon {
+    min-height: 70vh;
+    padding: 7rem 1.5rem;
   }
 }
