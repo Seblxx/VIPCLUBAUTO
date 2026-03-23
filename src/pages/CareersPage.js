@@ -1,53 +1,57 @@
 import React from 'react';
-import { useLanguage } from '../App';
 import Reveal from '../components/Reveal';
 import { FaCheck, FaClock, FaMoneyBillWave, FaUsers, FaAward, FaGraduationCap } from 'react-icons/fa';
 import './CareersPage.css';
 
 const CareersPage = () => {
-  const { t } = useLanguage();
 
   const jobPostings = [
     {
       id: 1,
       image: '/POSTE DISPONIBLE I.png',
-      title: t.jobs.positions.position1.title,
+      title: 'Technicien en Esthétique Automobile',
       type: 'Temps Plein',
-      salary: '45,000$ - 60,000$ / an',
-      description: t.jobs.positions.position1.description,
+      salary: '45,000$ - 65,000$ / an',
+      description: 'Nous recherchons un technicien passionné pour rejoindre notre équipe d\'élite. Vous serez responsable du lavage, polissage, et détaillage complet de véhicules haut de gamme. Formation continue et opportunités d\'avancement garanties.',
       requirements: [
-        'Expérience en détaillage automobile',
-        'Souci du détail et perfectionniste',
-        'Bonne condition physique',
-        'Disponibilité flexible'
+        'Minimum 2 ans d\'expérience en détaillage automobile',
+        'Maîtrise des techniques de polissage et correction de peinture',
+        'Souci du détail exceptionnel et perfectionniste',
+        'Excellente condition physique',
+        'Permis de conduire valide',
+        'Disponibilité jour/soir/fin de semaine'
       ]
     },
     {
       id: 2,
       image: '/POSTE DISPONIBLE II.png',
-      title: t.jobs.positions.position2.title,
+      title: 'Spécialiste Lavage & Finition',
       type: 'Temps Plein',
-      salary: '35,000$ - 45,000$ / an',
-      description: t.jobs.positions.position2.description,
+      salary: '38,000$ - 52,000$ / an',
+      description: 'Poste clé au sein de notre équipe premium. Vous effectuerez des lavages extérieurs et intérieurs de haute qualité, ainsi que des traitements de finition. Idéal pour candidat motivé cherchant à développer ses compétences dans l\'industrie automobile de luxe.',
       requirements: [
-        'Passion pour l\'automobile',
-        'Excellente éthique de travail',
-        'Capacité d\'apprentissage rapide',
-        'Orientation service client'
+        'Expérience en lavage automobile (1 an minimum)',
+        'Connaissance des produits et techniques de nettoyage professionnel',
+        'Capacité à travailler efficacement en équipe',
+        'Attitude professionnelle et courtoise',
+        'Souci de la satisfaction client',
+        'Flexibilité horaire'
       ]
     },
     {
       id: 3,
       image: '/MISC III.png',
-      title: t.jobs.positions.position3.title,
+      title: 'Conseiller Service Client',
       type: 'Temps Plein',
-      salary: '40,000$ - 55,000$ / an',
-      description: t.jobs.positions.position3.description,
+      salary: '42,000$ - 58,000$ / an + Commission',
+      description: 'Soyez l\'ambassadeur de notre marque de luxe. Vous accueillerez nos clients, conseillerez sur nos services premium, gérerez les réservations et assurerez un service clientèle exceptionnel. Opportunité unique dans un environnement haut de gamme.',
       requirements: [
-        'Expérience service client',
-        'Excellentes compétences communication',
-        'Connaissance automobile un atout',
-        'Maîtrise informatique'
+        'Minimum 2 ans d\'expérience en service client',
+        'Excellentes compétences en communication (français/anglais)',
+        'Connaissance du milieu automobile (un atout majeur)',
+        'Maîtrise des outils informatiques et systèmes de réservation',
+        'Sens de l\'organisation et gestion des priorités',
+        'Présentation soignée et professionnelle'
       ]
     }
   ];

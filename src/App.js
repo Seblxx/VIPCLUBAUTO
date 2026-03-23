@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import PortfolioPage from './pages/PortfolioPage';
@@ -7,6 +7,17 @@ import CareersPage from './pages/CareersPage';
 import ContactPage from './pages/ContactPage';
 import { translations } from './translations';
 import './App.css';
+
+// Scroll to top component
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  
+  return null;
+}
 
 // Create Language Context
 export const LanguageContext = createContext();
@@ -41,6 +52,7 @@ function App() {
   return (
     <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
       <Router>
+        <ScrollToTop />
         <div className="App">
           <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
             <div className="nav-container">

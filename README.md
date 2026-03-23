@@ -1,19 +1,32 @@
 # 🚗 Lave-Auto VIP Club - Premium Car Washing Experience
 
-A luxurious, immersive car washing website built with React and modern web technologies. Features a stunning black and gold color scheme inspired by premium automotive brands like Genesis and Rolls Royce.
+A luxurious, multi-page car washing website built with React and modern web technologies. Features a stunning black and gold color scheme inspired by premium automotive brands like Genesis and Rolls Royce.
 
 ## ✨ Features
 
-- **🎬 Intro Video** - Captivating intro video that plays before the main site (can be skipped after 3 seconds)
+### 🎬 **Multi-Page Architecture**
+- **Home Page** - Intro video + hero section + overview cards + featured gallery
+- **Services Page** - Detailed service offerings with process breakdown
+- **Portfolio Page** - Image gallery with category filters and lightbox
+- **Careers Page** - Job listings with real images and detailed requirements
+- **Contact Page** - Professional contact form with business information
+
+### 🌟 **Premium Features**
+- **🎬 Intro Video** - Auto-playing intro video that plays on first visit (skippable after 3 seconds)
 - **🌐 Bilingual Support** - Full French/English translation with language toggle (French default)
-- **Video Background Hero Section** - Immersive full-screen video background with elegant overlay
-- **Reveal Animations** - Smooth scroll-triggered animations using Framer Motion
-- **Premium Services Showcase** - Detailed service offerings with hover effects
-- **Portfolio Gallery** - Beautiful image gallery with 12 showcase images and lightbox functionality
-- **Careers Section** - Job listings with detailed descriptions
-- **Contact Form** - Professional contact section with social media links
-- **Responsive Design** - Fully responsive across all devices
-- **Smooth Navigation** - Sticky navigation bar with scroll effects
+- **🎥 Video Background** - Immersive full-screen video background on hero section
+- **✨ Reveal Animations** - Smooth scroll-triggered animations using Framer Motion
+- **🎯 React Router** - Proper multi-page navigation with separate URLs
+- **📱 Responsive Design** - Fully responsive across all devices
+- **🔥 Smooth Transitions** - Page transitions with automatic scroll-to-top
+
+### 🎨 **Design Elements**
+- Beautiful glassmorphism card effects
+- Sequential fade-in animations on gallery items
+- Hover effects with image zoom and overlays
+- Animated backgrounds with rotating gradients
+- Custom scrollbar styling
+- Premium typography and spacing
 
 ## 🎨 Design
 
@@ -25,13 +38,21 @@ A luxurious, immersive car washing website built with React and modern web techn
 
 ## 🛠️ Technologies
 
-- **React 18.2** - Modern JavaScript library for building user interfaces
-- **Framer Motion** - Production-ready animation library
-- **React Icons** - Popular icon library
-- **CSS3** - Advanced styling with gradients, transitions, and animations
-- **Context API** - For language state management
+- **React 18.2** - Modern JavaScript library for UI
+- **React Router Dom 7** - Client-side routing for multi-page navigation
+- **Framer Motion 10.16** - Production-ready animation library
+- **React Icons 4.11** - Popular icon library
+- **CSS3** - Advanced styling with gradients, transitions, animations
+- **Context API** - Language state management
 
-## 📦 Installation
+## 📦 Installation & Setup
+
+### **Prerequisites**
+- Node.js (v14 or higher recommended)
+- npm or yarn package manager
+- Git
+
+### **Quick Start**
 
 1. **Clone the repository**
    ```bash
@@ -44,10 +65,173 @@ A luxurious, immersive car washing website built with React and modern web techn
    npm install
    ```
 
-3. **Start the development server**
+3. **Install serve globally (for production preview)**
    ```bash
-   npm start
+   npm install -g serve
    ```
+
+### **Development Mode**
+
+Run the development server with hot module reloading:
+
+```bash
+npm start
+```
+
+The site will open at `http://localhost:3001`
+
+**Note:** Development mode may show HMR warnings. For best results, use production mode.
+
+### **Production Mode (Recommended)**
+
+Build and serve the optimized production version:
+
+```bash
+npm run build
+npm run serve
+```
+
+The site will be available at `http://localhost:3000`
+
+This is the **recommended way** to view the site as it:
+- Avoids HMR (Hot Module Replacement) issues
+- Shows optimized performance
+- Properly handles React Router routing
+- Displays the site exactly as deployed
+
+## 🌐 Site Structure
+
+```
+localhost:3000/           - Home page (Intro + Hero + Overview)
+localhost:3000/services   - Services page with detailed offerings
+localhost:3000/portfolio  - Portfolio gallery with filters
+localhost:3000/careers    - Job opportunities with images
+localhost:3000/contact    - Contact form and information
+```
+
+## 📁 Project Structure
+
+```
+VIPCLUBAUTO/
+├── public/
+│   ├── index.html
+│   ├── INTRO VIDEO.mp4
+│   ├── laveAutoVipClub.mp4
+│   ├── logo-lave-auto-vip-club-scaled.png
+│   ├── SHOWCASE II.png - VI.png, TIRES.png
+│   ├── POSTE DISPONIBLE I.png, II.png
+│   └── MISC III.png, IV.png, TIRES.png
+├── src/
+│   ├── pages/
+│   │   ├── HomePage.js/css
+│   │   ├── ServicesPage.js/css
+│   │   ├── PortfolioPage.js/css
+│   │   ├── CareersPage.js/css
+│   │   └── ContactPage.js/css
+│   ├── components/
+│   │   ├── IntroVideo.js/css
+│   │   ├── Hero.js/css
+│   │   ├── Services.js/css
+│   │   ├── Showcase.js/css
+│   │   ├── Jobs.js/css
+│   │   ├── Contact.js/css
+│   │   └── Reveal.js
+│   ├── App.js
+│   ├── App.css
+│   ├── translations.js
+│   └── index.js
+├── serve.json (SPA routing config)
+├── .env (HMR configuration)
+└── package.json
+```
+
+## 🎯 Key Features Explained
+
+### **Intro Video**
+- Plays automatically on first visit
+- Can be skipped after 3 seconds
+- Smooth transition to main site
+
+### **Navigation**
+- Sticky navbar with scroll effects
+- Active page highlighting
+- Language toggle (FR/EN) persists across pages
+- Logo links back to home
+
+### **Portfolio Page**
+- Filter by category: All, Détaillage, Extérieur, Intérieur, Céramique, Roues
+- Lightbox modal for full-size viewing
+- Statistics section with impressive numbers
+
+### **Careers Page**
+- 3 realistic job postings with images
+- Detailed salary ranges and requirements
+- Company culture section
+- Benefits grid with 6 key benefits
+
+### **Bilingual System**
+- Complete French/English translations
+- Toggle button in navigation
+- French set as default language
+- State persists during session
+
+## 🐛 Troubleshooting
+
+### **Port 3000 already in use**
+If you see port 3000 in use:
+```bash
+# Windows
+netstat -ano | findstr :3000
+taskkill /PID <PID> /F
+
+# Then restart with:
+npm run serve
+```
+
+### **HMR Errors in Development**
+The `.env` file disables Fast Refresh to prevent HMR issues. For best experience, use production mode:
+```bash
+npm run build
+npm run serve
+```
+
+### **Routing doesn't work / 404 on refresh**
+The `serve.json` file configures SPA routing. It's automatically copied to the build folder during `npm run build`. If issues persist:
+```bash
+copy serve.json build\serve.json
+```
+
+### **Images not loading**
+All images should be in the `public/` folder. The build process copies them to `build/`. If images are missing, ensure they're in `public/` before building.
+
+## 🚀 Deployment
+
+The site can be deployed to any static hosting service:
+
+- **Vercel** - Recommended for React apps
+- **Netlify** - Great for static sites
+- **GitHub Pages** - Free hosting option
+- **Firebase Hosting** - Google's hosting solution
+
+The `serve.json` file ensures proper routing on all platforms.
+
+## 📱 Social Media
+
+- **Facebook**: [VIP Club Auto Facebook Group](https://www.facebook.com/groups/796253056371700)
+- **Instagram**: [@laveautov.i.p.](https://www.instagram.com/laveautov.i.p./)
+- **TikTok**: [@laveauto.v.i.p.cl](https://www.tiktok.com/@laveauto.v.i.p.cl)
+
+## 📄 License
+
+This project is private and proprietary to Lave-Auto VIP Club.
+
+## 👥 Contributors
+
+- **Seblxx** - Lead Developer
+
+---
+
+**Built with ❤️ for VIP Club Auto - Where Excellence Meets Automotive Care**
 
 4. **Open your browser**
    Navigate to `http://localhost:3000`
