@@ -24,36 +24,308 @@ export const translations = {
       title: "NOS",
       titleGold: "SERVICES",
       subtitle: "L'excellence dans chaque détail",
-      service1: {
-        title: "Lavage Extérieur Premium",
-        description: "Un nettoyage complet de l'extérieur avec des produits haut de gamme pour une brillance exceptionnelle.",
-        price: "À partir de 79$"
-      },
-      service2: {
-        title: "Détaillage Intérieur VIP",
-        description: "Un nettoyage en profondeur de l'habitacle, incluant cuir, tissus et tous les recoins.",
-        price: "À partir de 149$"
-      },
-      service3: {
-        title: "Protection Céramique",
-        description: "Une protection durable qui préserve l'éclat de votre véhicule pendant des années.",
-        price: "À partir de 599$"
-      },
-      service4: {
-        title: "Polissage & Correction",
-        description: "Élimination des micro-rayures et restauration de la brillance d'origine de la peinture.",
-        price: "À partir de 399$"
-      },
-      service5: {
-        title: "Traitement Antirouille",
-        description: "Protection complète contre la corrosion pour prolonger la vie de votre véhicule.",
-        price: "À partir de 199$"
-      },
-      service6: {
-        title: "Package Complet VIP",
-        description: "L'expérience ultime combinant tous nos services pour une perfection absolue.",
-        price: "Sur mesure"
-      },
+      list: [
+        {
+          title: "CIRE PERFECTION WAX 324 AUTO",
+          description: "Application à la main de la cire, offre une protection d'une durée de 9 à 13 mois selon usage du véhicule.",
+          price: "CA$79.99",
+          image: "/cireperfectionwax.png"
+        },
+        {
+          title: "REMISE À NEUF CAMION",
+          description: "Lavage int/ext - Tornardo trappe à air - Balayeuse - Protecteur de vinyle - Vitre int. - Shampoing tapis/tissu (au besoin) - Shampoing moteur - Cire 324 - Lustre à pneu - Vitre ext.",
+          price: "CA$299.99",
+          image: "/remiseaneufcamion.png"
+        },
+        {
+          title: "REMISE À NEUF AUTO",
+          description: "Lavage int/ext - Tornardo trappe à air - Balayeuse - Protecteur de vinyle - Vitre int. - Shampoing tapis/tissu (au besoin) - Shampoing moteur - Cire 324 - Décontamination peinture - Lustre à pneu - Vitre ext.",
+          price: "CA$229.99",
+          image: "/remiseaneufcamion.png"
+        },
+        {
+          title: "POSE DE PNEU AUTO (DÉJÀ MONTÉ)",
+          description: "Installer 4 pneus déjà monté sur les roues - Effectuer la rotation.",
+          price: "CA$49.99",
+          image: "/posedepneuauto.png"
+        },
+        {
+          title: "PNEU POSÉ + BALANCÉ (ACIER 13 À 15 POUCES)",
+          description: "Montage, démontage, balancement.",
+          price: "CA$59.99",
+          image: "/pneu.png"
+        },
+        {
+          title: "PNEU POSÉ + BALANCÉ (ACIER 16 POUCES)",
+          description: "Montage, démontage, balancement.",
+          price: "CA$64.99",
+          image: "/pneu.png"
+        },
+        {
+          title: "PNEU POSÉ + BALANCÉ (ACIER 17 À 18 POUCES)",
+          description: "Montage, démontage, balancement.",
+          price: "CA$69.99",
+          image: "/pneu.png"
+        },
+        {
+          title: "PNEU POSÉ + BALANCÉ (ACIER 19 À 21 POUCES)",
+          description: "Montage, démontage, balancement.",
+          price: "CA$79.99",
+          image: "/pneu.png"
+        },
+        {
+          title: "PNEU POSÉ + BALANCÉ (ALLIAGES 13 À 15 POUCES)",
+          description: "Montage, démontage, balancement.",
+          price: "CA$69.99",
+          image: "/pneu2.png"
+        },
+        {
+          title: "PNEU POSÉ + BALANCÉ (ALLIAGES 16 POUCES)",
+          description: "Montage, démontage, balancement.",
+          price: "CA$74.99",
+          image: "/pneu2.png"
+        },
+        {
+          title: "PNEU POSÉ + BALANCÉ (ALLIAGES 17 À 18 POUCES)",
+          description: "Montage, démontage, balancement.",
+          price: "CA$79.99",
+          image: "/pneu2.png"
+        },
+        {
+          title: "PNEU POSÉ + BALANCÉ (ALLIAGES 19 À 21 POUCES)",
+          description: "Montage, démontage, balancement.",
+          price: "CA$89.99",
+          image: "/pneu2.png"
+        },
+        {
+          title: "SHAMPOING TAPIS/TISSU (AVANT) AUTO",
+          description: "Shampoing tapis/tissu sur la partie avant du véhicule.",
+          price: "CA$24.99",
+          image: "/shampoing.png"
+        },
+        {
+          title: "SHAMPOING TAPIS/TISSU (AVANT) CAMION",
+          description: "Shampoing tapis/tissu sur la partie avant seulement du véhicule.",
+          price: "CA$39.99",
+          image: "/shampoing.png"
+        },
+        {
+          title: "VÉHICULE DE COURTOISIE",
+          description: "Véhicule de courtoisie.",
+          price: "CA$14.99",
+          image: "/courtoisie.png"
+        },
+        {
+          title: "SHAMPOING TAPIS/TISSU (AVANT) VUS",
+          description: "Shampoing tapis/tissu sur la partie avant seulement du véhicule.",
+          price: "CA$29.99",
+          image: "/shampoing.png"
+        },
+        {
+          title: "LAVAGE SPÉCIALE ENTREPRISE GÉNIO",
+          description: "Lavage int./ext. de base options en sus.",
+          price: "CA$69.99",
+          image: "/lavagespecial.png"
+        },
+        {
+          title: "POLISSAGE DES PHARES",
+          description: "Effectuer le polissage des phares en 4 étape et +.",
+          price: "CA$45.00",
+          image: "/polissage.png"
+        },
+        {
+          title: "POLISSAGE 3 ÉTAPE",
+          description: "Polissage de base 3 étapes.",
+          price: "Prix variable",
+          image: "polissage2.png"
+        },
+        {
+          title: "RÉPARATION DE PNEU",
+          description: "Réparer le pneu défectueux.",
+          price: "Prix variable",
+          image: "/reparationpneu.png"
+        },
+        {
+          title: "LAVAGE INTÉRIEUR VUS",
+          description: "Dépoussiérage - Balayeuse - Vitre - Tornardo trappe.",
+          price: "CA$39.99",
+          image: "/lavageinterieur.png"
+        },
+        {
+          title: "SHAMPOING TAPIS/TISSU CAMION",
+          description: "Machine à tapis sur les sièges et tapis.",
+          price: "CA$79.99",
+          image: "/shampoing.png"
+        },
+        {
+          title: "SHAMPOING TAPIS/TISSU VUS",
+          description: "Machine à tapis sur les sièges et tapis.",
+          price: "CA$59.99",
+          image: "/shampoing.png"
+        },
+        {
+          title: "SHAMPOING MOTEUR AUTO",
+          description: "Dégraissage du compartiment moteur.",
+          price: "CA$24.99",
+          image: "/shampoingmoteur.png"
+        },
+        {
+          title: "LAVAGE INTÉRIEUR AUTO",
+          description: "Dépoussiérage - Balayeuse - Vitre - Tornardo trappe.",
+          price: "CA$34.99",
+          image: "/lavageinterieur.png"
+        },
+        {
+          title: "DÉCONTAMINATION PEINTURE AUTO",
+          description: "Décontamination fait à la main avec minutie.",
+          price: "CA$39.99",
+          image: "/decontamination.png"
+        },
+        {
+          title: "LAVAGE EXTÉRIEUR VUS",
+          description: "Jantes - Carosserie - Vitre ext.",
+          price: "CA$29.99",
+          image: "/lavageexterieur.png"
+        },
+        {
+          title: "LAVAGE INT./EXT. AUTO",
+          description: "Dépoussiérage - Balayeuse - Vitre int/ext - Jantes - Carosserie.",
+          price: "CA$59.99",
+          image: "/lavagecomplet.png"
+        },
+        {
+          title: "PROTECTEUR DE VINYLE CAMION",
+          description: "Application sur tout les plastique de l'habitacle.",
+          price: "CA$34.99",
+          image: "/protecteur.png"
+        },
+        {
+          title: "SHAMPOING MOTEUR CAMION",
+          description: "Dégraissage du compartiment moteur.",
+          price: "CA$34.99",
+          image: "/shampoingmoteur.png"
+        },
+        {
+          title: "LAVAGE EXTÉRIEUR AUTO",
+          description: "Jantes - Carosserie - Vitre ext.",
+          price: "CA$24.99",
+          image: "/lavageexterieur.png"
+        },
+        {
+          title: "LUSTRE À PNEU VUS",
+          description: "Application du lustre sur les 4 pneus.",
+          price: "CA$14.99",
+          image: "/lustre.png"
+        },
+        {
+          title: "LUSTRE À PNEU CAMION",
+          description: "Application du lustre sur les 4 pneus.",
+          price: "CA$14.99",
+          image: "/lustre.png"
+        },
+        {
+          title: "LAVAGE EXTÉRIEUR CAMION",
+          description: "Jantes - Carosserie - Vitre ext.",
+          price: "CA$34.99",
+          image: "/lavageexterieur.png"
+        },
+        {
+          title: "REMISE À NEUF VUS",
+          description: "Lavage int/ext - Tornardo trappe à air - Balayeuse - Protecteur de vinyle - Vitre int. - Shampoing tapis/tissu (au besoin) - Shampoing moteur - Cire 324 - Décontamination peinture - Lustre à pneu - Vitre ext.",
+          price: "CA$249.99",
+          image: "/remiseaneufcamion.png"
+        },
+        {
+          title: "LAVAGE INTÉRIEUR CAMION",
+          description: "Dépoussiérage - Balayeuse - Vitre - Tornardo trappe.",
+          price: "CA$44.99",
+          image: "/lavageinterieur.png"
+        },
+        {
+          title: "DÉCONTAMINATION PEINTURE CAMION",
+          description: "Décontamination fait à la main avec minutie.",
+          price: "CA$49.99",
+          image: "/decontamination.png"
+        },
+        {
+          title: "LAVAGE INT./EXT. CAMION",
+          description: "Dépoussiérage - Balayeuse - Vitre int/ext - Jantes - Carosserie.",
+          price: "CA$79.99",
+          image: "/lavagecomplet.png"
+        },
+        {
+          title: "CIRE LIQUIDE AUTO",
+          description: "Application de cire liquide.",
+          price: "CA$24.99",
+          image: "/cire.png"
+        },
+        {
+          title: "CIRE LIQUIDE VUS",
+          description: "Application de cire liquide.",
+          price: "CA$29.99",
+          image: "/cire.png"
+        },
+        {
+          title: "LUSTRE À PNEU AUTO",
+          description: "Application du lustre sur les 4 pneus.",
+          price: "CA$14.99",
+          image: "/lustre.png"
+        },
+        {
+          title: "PROTECTEUR DE VINYLE VUS",
+          description: "Application sur tout les plastique de l'habitacle.",
+          price: "CA$29.99",
+          image: "/protecteur.png"
+        },
+        {
+          title: "SHAMPOING MOTEUR VUS",
+          description: "Dégraissage du compartiment moteur.",
+          price: "CA$29.99",
+          image: "/shampoingmoteur.png"
+        },
+        {
+          title: "DÉCONTAMINATION PEINTURE VUS",
+          description: "Décontamination fait à la main avec minutie.",
+          price: "CA$44.99",
+          image: "/decontamination.png"
+        },
+        {
+          title: "LAVAGE INT./EXT. VUS",
+          description: "Dépoussiérage - Balayeuse - Vitre int/ext - Jantes - Carosserie.",
+          price: "CA$69.99",
+          image: "/lavagecomplet.png"
+        },
+        {
+          title: "CIRE PERFECTION WAX 324 VUS",
+          description: "Application à la main de la cire, offre une protection d'une durée de 9 à 13 mois selon usage du véhicule.",
+          price: "CA$99.99",
+          image: "/cireperfectionwax.png"
+        },
+        {
+          title: "CIRE LIQUIDE CAMION",
+          description: "Application de cire liquide.",
+          price: "CA$34.99",
+          image: "/cire.png"
+        },
+        {
+          title: "SHAMPOING TAPIS/TISSU AUTO",
+          description: "Machine à tapis sur les sièges et tapis.",
+          price: "CA$49.99",
+          image: "/shampoing.png"
+        },
+        {
+          title: "CIRE PERFECTION WAX 324 CAMION",
+          description: "Application à la main de la cire, offre une protection d'une durée de 9 à 13 mois selon usage du véhicule.",
+          price: "CA$119.99",
+          image: "/cireperfectionwax.png"
+        },
+        {
+          title: "PROTECTEUR DE VINYLE AUTO",
+          description: "Application sur tout les plastique de l'habitacle.",
+          price: "CA$24.99",
+          image: "/protecteur.png"
+        }
+      ],
       book: "Réserver"
     },
     
