@@ -326,30 +326,43 @@
   .home-overview,
   .home-featured,
   .home-cta {
-    padding: 5rem 0;
+    padding: 3rem 0;
   }
-
   .overview-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.2rem;
   }
-
   .featured-grid {
     grid-template-columns: 1fr;
   }
-
   .featured-item.large {
     grid-row: span 1;
   }
-
   .cta-buttons {
     flex-direction: column;
     align-items: center;
   }
-
   .cta-buttons .btn {
     width: 100%;
-    max-width: 300px;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-overview,
+  .home-featured,
+  .home-cta {
+    padding: 1.5rem 0;
+  }
+  .overview-grid,
+  .featured-grid {
+    gap: 0.7rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .overview-grid {
+    gap: 12rem;
   }
 }
 

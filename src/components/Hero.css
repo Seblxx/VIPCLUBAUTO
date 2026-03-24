@@ -218,12 +218,31 @@
     width: 100%;
     max-width: 300px;
   }
-  
   .btn {
     width: 100%;
   }
-  
   .scroll-indicator {
     bottom: 2rem;
+  }
+  .hero-logo {
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 1rem;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-logo {
+    width: 70px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .hero-logo {
+    width: 200px;
   }
 }

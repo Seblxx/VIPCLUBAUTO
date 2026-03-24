@@ -1,7 +1,6 @@
 .careers-page {
   width: 100%;
   background: #000000;
-}
 
 /* Careers Hero */
 .careers-hero {
@@ -325,30 +324,32 @@
 
 @media (max-width: 968px) {
   .careers-hero {
-    padding: 7rem 1.5rem 3rem;
+    padding: 5rem 1rem 2rem;
     min-height: auto;
   }
-
   .why-join,
   .job-postings,
   .company-culture,
   .careers-cta {
-    padding: 4rem 0;
+    padding: 2.5rem 0;
   }
-
   .benefits-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
-
   .job-posting-card {
     grid-template-columns: 1fr;
   }
-
   .job-image {
-    height: 220px;
+    height: 120px;
   }
+}
 
+@media (max-width: 480px) {
+  .careers-hero {
+    padding: 2rem 0.5rem 1rem;
+  }
+}
   .job-content {
     padding: 1.5rem;
   }

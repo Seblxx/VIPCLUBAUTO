@@ -173,15 +173,29 @@
 
 @media (max-width: 768px) {
   .services {
-    padding: 5rem 0;
+    padding: 4rem 0;
   }
-
   .services-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
   }
-
   .service-card {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services {
+    padding: 2.5rem 0;
+  }
+  .service-card {
+    padding: 1rem 0.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   }
 }

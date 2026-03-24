@@ -31,18 +31,19 @@ export const useLanguage = () => {
   return context;
 };
 
+
 function App() {
   const [scrolled, setScrolled] = useState(false);
   const [language, setLanguage] = useState('fr'); // Default to French
   const [introPlayed, setIntroPlayed] = useState(
     sessionStorage.getItem('introPlayed') === 'true'
   );
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -52,11 +53,14 @@ function App() {
   };
 
   const t = translations[language];
-  
+
   const handleIntroComplete = () => {
     setIntroPlayed(true);
     sessionStorage.setItem('introPlayed', 'true');
   };
+
+  const handleMenuToggle = () => setMenuOpen(open => !open);
+  const handleMenuClose = () => setMenuOpen(false);
 
   return (
     <LanguageContext.Provider value={{ language, toggleLanguage, t, introPlayed, handleIntroComplete }}>
@@ -65,21 +69,26 @@ function App() {
         <div className="App">
           <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
             <div className="nav-container">
-              <Link to="/" className="nav-logo">
+              <Link to="/" className="nav-logo" onClick={handleMenuClose}>
                 <img src="/logo-lave-auto-vip-club-scaled.png" alt="VIP Club Auto" />
               </Link>
-              <ul className="nav-menu">
-                <li><Link to="/services">{t.nav.services}</Link></li>
-                <li><Link to="/portfolio">{t.nav.portfolio}</Link></li>
-                <li><Link to="/careers">{t.nav.careers}</Link></li>
-                <li><Link to="/boutique">{t.nav.contact}</Link></li>
+              <button className="burger-menu" aria-label="Open menu" aria-expanded={menuOpen} onClick={handleMenuToggle}>
+                <span className="burger-bar"></span>
+                <span className="burger-bar"></span>
+                <span className="burger-bar"></span>
+              </button>
+              <ul className={`nav-menu${menuOpen ? ' active' : ''}`}> 
+                <li><Link to="/services" onClick={handleMenuClose}>{t.nav.services}</Link></li>
+                <li><Link to="/portfolio" onClick={handleMenuClose}>{t.nav.portfolio}</Link></li>
+                <li><Link to="/careers" onClick={handleMenuClose}>{t.nav.careers}</Link></li>
+                <li><Link to="/boutique" onClick={handleMenuClose}>{t.nav.contact}</Link></li>
                 <li>
-                  <Link to="/rendez-vous" className="nav-book-btn">
+                  <Link to="/rendez-vous" className="nav-book-btn" onClick={handleMenuClose}>
                     {language === 'fr' ? 'Réserver' : 'Book'}
                   </Link>
                 </li>
                 <li>
-                  <button className="language-toggle" onClick={toggleLanguage}>
+                  <button className="language-toggle" onClick={() => { toggleLanguage(); handleMenuClose(); }}>
                     {language === 'fr' ? 'EN' : 'FR'}
                   </button>
                 </li>
