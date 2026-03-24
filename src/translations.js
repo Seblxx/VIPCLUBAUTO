@@ -479,36 +479,44 @@ export const translations = {
       title: "OUR",
       titleGold: "SERVICES",
       subtitle: "Excellence in every detail",
-      service1: {
-        title: "Premium Exterior Wash",
-        description: "Complete exterior cleaning with premium products for exceptional shine.",
-        price: "From $79"
-      },
-      service2: {
-        title: "VIP Interior Detailing",
-        description: "Deep cleaning of the interior, including leather, fabrics and all corners.",
-        price: "From $149"
-      },
-      service3: {
-        title: "Ceramic Protection",
-        description: "Durable protection that preserves your vehicle's shine for years.",
-        price: "From $599"
-      },
-      service4: {
-        title: "Polishing & Correction",
-        description: "Removal of micro-scratches and restoration of the original paint shine.",
-        price: "From $399"
-      },
-      service5: {
-        title: "Rust Treatment",
-        description: "Complete protection against corrosion to extend your vehicle's life.",
-        price: "From $199"
-      },
-      service6: {
-        title: "Complete VIP Package",
-        description: "The ultimate experience combining all our services for absolute perfection.",
-        price: "Custom"
-      },
+      list: [
+        {
+          title: "Premium Exterior Wash",
+          description: "Complete exterior cleaning with premium products for exceptional shine.",
+          price: "From $79",
+          image: "/cireperfectionwax.png"
+        },
+        {
+          title: "VIP Interior Detailing",
+          description: "Deep cleaning of the interior, including leather, fabrics and all corners.",
+          price: "From $149",
+          image: "/remiseaneufcamion.png"
+        },
+        {
+          title: "Ceramic Protection",
+          description: "Durable protection that preserves your vehicle's shine for years.",
+          price: "From $599",
+          image: "/pneu.png"
+        },
+        {
+          title: "Polishing & Correction",
+          description: "Removal of micro-scratches and restoration of the original paint shine.",
+          price: "From $399",
+          image: "/polissage.png"
+        },
+        {
+          title: "Rust Treatment",
+          description: "Complete protection against corrosion to extend your vehicle's life.",
+          price: "From $199",
+          image: "/protecteur.png"
+        },
+        {
+          title: "Complete VIP Package",
+          description: "The ultimate experience combining all our services for absolute perfection.",
+          price: "Custom",
+          image: "/lavagecomplet.png"
+        }
+      ],
       book: "Book",
       showMore: "Show More",
       showLess: "Show Less"
