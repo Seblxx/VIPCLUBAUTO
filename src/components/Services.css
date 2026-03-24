@@ -58,6 +58,32 @@
   transition: all 0.5s ease;
   position: relative;
   overflow: hidden;
+  min-height: 520px; /* Ensures all cards are the same height */
+}
+/* Ensures service images are consistent in size and aspect ratio */
+.service-image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #181818;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+  transition: transform 0.4s;
+}
+
+.service-card:hover .service-image img {
+  transform: scale(1.05);
 }
 
 .service-card::before {

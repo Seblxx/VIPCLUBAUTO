@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../App';
@@ -25,7 +26,7 @@ const Hero = () => {
           {t.hero.welcome}<br />
           {t.hero.experience} <span className="gold-text">{t.hero.vip}</span>
         </motion.h1>
-        
+
         <motion.p 
           className="hero-subtitle"
           initial={{ opacity: 0 }}
@@ -34,6 +35,7 @@ const Hero = () => {
         >
           {t.hero.subtitle}
         </motion.p>
+
       </div>
     </section>
   );

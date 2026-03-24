@@ -82,6 +82,43 @@
   letter-spacing: 1px;
 }
 
+.hero-socials {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.hero-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 1.7rem;
+  background: rgba(255,255,255,0.07);
+  color: #D4AF37;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  border: 1.5px solid #D4AF37;
+}
+.hero-social-link.facebook:hover {
+  background: #1877f2;
+  color: #fff;
+  border-color: #1877f2;
+}
+.hero-social-link.instagram:hover {
+  background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  color: #fff;
+  border-color: #d6249f;
+}
+.hero-social-link.tiktok:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
 .hero-buttons {
   display: flex;
   gap: 1.5rem;
