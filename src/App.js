@@ -58,14 +58,19 @@ function App() {
     sessionStorage.setItem('introPlayed', 'true');
   };
 
+  const replayIntro = () => {
+    setIntroPlayed(false);
+    sessionStorage.removeItem('introPlayed');
+  };
+
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, t, introPlayed, handleIntroComplete }}>
+    <LanguageContext.Provider value={{ language, toggleLanguage, t, introPlayed, handleIntroComplete, replayIntro }}>
       <Router>
         <ScrollToTop />
         <div className="App">
           <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
             <div className="nav-container">
-              <Link to="/" className="nav-logo">
+              <Link to="/" className="nav-logo" onClick={() => { replayIntro(); }}>
                 <img src="/logo-lave-auto-vip-club-scaled.png" alt="VIP Club Auto" />
               </Link>
               <ul className="nav-menu">
