@@ -11,6 +11,19 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding-top: 7rem;
+}
+
+@media (max-width: 768px) {
+  .services-hero {
+    padding-top: 9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-hero {
+    padding-top: 10rem;
+  }
 }
 
 .services-hero-bg {
