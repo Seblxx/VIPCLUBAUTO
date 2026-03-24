@@ -326,7 +326,9 @@ export const translations = {
           image: "/protecteur.png"
         }
       ],
-      book: "Réserver"
+      book: "Réserver",
+      showMore: "Voir plus",
+      showLess: "Voir moins"
     },
     
     // Showcase Section
@@ -507,7 +509,9 @@ export const translations = {
         description: "The ultimate experience combining all our services for absolute perfection.",
         price: "Custom"
       },
-      book: "Book"
+      book: "Book",
+      showMore: "Show More",
+      showLess: "Show Less"
     },
     
     // Showcase Section

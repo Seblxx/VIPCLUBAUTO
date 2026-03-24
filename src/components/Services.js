@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import { FaCarSide, FaStar, FaShieldAlt, FaSprayCan, FaGem, FaMagic } from 'react-icons/fa';
 import { useLanguage } from '../App';
 import Reveal from './Reveal';
@@ -8,6 +8,11 @@ const Services = () => {
   const { t } = useLanguage();
   
   const services = t.services.list;
+
+  // Show only a few services by default
+  const DEFAULT_VISIBLE = 3;
+  const [showAll, setShowAll] = useState(false);
+  const visibleServices = showAll ? services : services.slice(0, DEFAULT_VISIBLE);
 
   return (
     <section id="services" className="services">
@@ -24,7 +29,7 @@ const Services = () => {
         </Reveal>
 
         <div className="services-grid">
-          {services.map((service, index) => (
+          {visibleServices.map((service, index) => (
             <Reveal key={index} delay={index * 0.1}>
               <div className="service-card">
                 <div className="service-image">
@@ -38,6 +43,19 @@ const Services = () => {
             </Reveal>
           ))}
         </div>
+
+        {services.length > DEFAULT_VISIBLE && (
+          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <button
+              className="service-btn"
+              style={{ padding: '1rem 2.5rem', fontSize: '1rem' }}
+              onClick={() => setShowAll((prev) => !prev)}
+            >
+              {showAll ? t.services.showLess || 'Voir moins' : t.services.showMore || 'Voir plus'}
+            </button>
+          </div>
+        )
+        }
       </div>
     </section>
   );
