@@ -59,17 +59,27 @@ function App() {
     sessionStorage.setItem('introPlayed', 'true');
   };
 
-  const handleMenuToggle = () => setMenuOpen(open => !open);
-  const handleMenuClose = () => setMenuOpen(false);
+  const replayIntro = () => {
+    setIntroPlayed(false);
+    sessionStorage.removeItem('introPlayed');
+  };
+
+  const handleMenuToggle = () => {
+    setMenuOpen(prev => !prev);
+  };
+
+  const handleMenuClose = () => {
+    setMenuOpen(false);
+  };
 
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, t, introPlayed, handleIntroComplete }}>
+    <LanguageContext.Provider value={{ language, toggleLanguage, t, introPlayed, handleIntroComplete, replayIntro }}>
       <Router>
         <ScrollToTop />
         <div className="App">
           <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
             <div className="nav-container">
-              <Link to="/" className="nav-logo" onClick={handleMenuClose}>
+              <Link to="/" className="nav-logo" onClick={() => { replayIntro(); handleMenuClose(); }}>
                 <img src="/logo-lave-auto-vip-club-scaled.png" alt="VIP Club Auto" />
               </Link>
               <button className="burger-menu" aria-label="Open menu" aria-expanded={menuOpen} onClick={handleMenuToggle}>

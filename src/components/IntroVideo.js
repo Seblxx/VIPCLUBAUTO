@@ -42,7 +42,7 @@ const IntroVideo = ({ onComplete }) => {
       
       {canSkip && (
         <button className="skip-intro-btn" onClick={handleSkip}>
-          Passer l'intro / Skip intro →
+          SKIP
         </button>
       )}
     </div>
