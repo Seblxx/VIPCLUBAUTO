@@ -1,7 +1,6 @@
 .services-page {
   width: 100%;
   background: #000000;
-}
 
 /* Services Hero */
 .services-hero {
@@ -12,6 +11,19 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding-top: 7rem;
+}
+
+@media (max-width: 768px) {
+  .services-hero {
+    padding-top: 9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-hero {
+    padding-top: 10rem;
+  }
 }
 
 .services-hero-bg {
@@ -234,4 +246,19 @@
   .benefits-image {
     order: 1;
   }
+}
+
+@media (max-width: 480px) {
+  .services-hero {
+    height: 18vh;
+    min-height: 100px;
+  }
+  .premium-process,
+  .service-benefits {
+    padding: 1rem 0;
+  }
+  .benefits-content {
+    gap: 1rem;
+  }
+}
 }

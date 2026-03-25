@@ -169,16 +169,29 @@
 
 @media (max-width: 768px) {
   .showcase {
-    padding: 5rem 0;
+    padding: 4rem 0;
   }
-
   .showcase-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
   }
-
   .lightbox-close {
-    top: -40px;
-    font-size: 2.5rem;
+    top: -30px;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .showcase {
+    padding: 2rem 0;
+  }
+  .showcase-item {
+    aspect-ratio: 1/1;
+  }
+}
+
+@media (min-width: 1400px) {
+  .showcase-grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   }
 }

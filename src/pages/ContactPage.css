@@ -58,3 +58,10 @@
     padding: 7rem 1.5rem;
   }
 }
+
+@media (max-width: 480px) {
+  .boutique-coming-soon {
+    min-height: 50vh;
+    padding: 3rem 0.5rem;
+  }
+}
