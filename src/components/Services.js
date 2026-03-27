@@ -22,9 +22,6 @@ const Services = () => {
             <h2 className="section-title">
               {t.services.title} <span className="gold-text">{t.services.titleGold}</span>
             </h2>
-            <p className="section-subtitle">
-              {t.services.subtitle}
-            </p>
           </div>
         </Reveal>
 

@@ -22,7 +22,9 @@
 
 .section-header {
   text-align: center;
-  margin-bottom: 5rem;
+  top: 250px;
+  right: 200px;
+  width: 100%;
 }
 
 .section-title {
@@ -33,6 +35,10 @@
   margin-bottom: 1rem;
   letter-spacing: 2px;
   text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  display: block;
+  top: 100px;
 }
 
 .section-subtitle {

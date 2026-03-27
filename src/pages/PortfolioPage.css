@@ -330,7 +330,25 @@
     height: auto;
   }
   .portfolio-filters {
-    padding: 0.5rem 0 0.2rem;
+    padding: 1rem 0;
+  }
+  .filter-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 0.6rem;
+    padding: 0 1rem;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .filter-buttons::-webkit-scrollbar {
+    display: none;
+  }
+  .filter-btn {
+    flex-shrink: 0;
+    font-size: 0.78rem;
+    padding: 0.5rem 1rem;
   }
   .gallery-grid {
     gap: 0.7rem;

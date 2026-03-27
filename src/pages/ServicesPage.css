@@ -241,8 +241,10 @@
 
 @media (max-width: 480px) {
   .services-hero {
-    height: 18vh;
-    min-height: 100px;
+    height: auto;
+    min-height: 280px;
+    padding-top: 7rem;
+    padding-bottom: 2rem;
   }
   .premium-process,
   .service-benefits {
