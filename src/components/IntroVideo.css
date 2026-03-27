@@ -64,10 +64,7 @@
 
 @media (max-width: 768px) {
   .skip-intro-btn {
-    bottom: 2rem;
-    right: 2rem;
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
+    display: none;
   }
 }
 

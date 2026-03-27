@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Reveal from '../components/Reveal';
-import { FaCheck, FaClock, FaMoneyBillWave, FaUsers, FaAward, FaGraduationCap } from 'react-icons/fa';
+import { FaCheck, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import Footer from '../components/Footer';
 import './CareersPage.css';
 
 const CareersPage = () => {
+  const [expandedJob, setExpandedJob] = useState(null);
+
+  const toggleJob = (id) => {
+    setExpandedJob(prev => (prev === id ? null : id));
+  };
 
   const jobPostings = [
     {
@@ -11,7 +17,6 @@ const CareersPage = () => {
       image: '/POSTE DISPONIBLE I.png',
       title: 'Technicien en Esthétique Automobile',
       type: 'Temps Plein',
-      salary: '45,000$ - 65,000$ / an',
       description: 'Nous recherchons un technicien passionné pour rejoindre notre équipe d\'élite. Vous serez responsable du lavage, polissage, et détaillage complet de véhicules haut de gamme. Formation continue et opportunités d\'avancement garanties.',
       requirements: [
         'Minimum 2 ans d\'expérience en détaillage automobile',
@@ -27,7 +32,6 @@ const CareersPage = () => {
       image: '/POSTE DISPONIBLE II.png',
       title: 'Spécialiste Lavage & Finition',
       type: 'Temps Plein',
-      salary: '38,000$ - 52,000$ / an',
       description: 'Poste clé au sein de notre équipe premium. Vous effectuerez des lavages extérieurs et intérieurs de haute qualité, ainsi que des traitements de finition. Idéal pour candidat motivé cherchant à développer ses compétences dans l\'industrie automobile de luxe.',
       requirements: [
         'Expérience en lavage automobile (1 an minimum)',
@@ -43,7 +47,6 @@ const CareersPage = () => {
       image: '/MISC III.png',
       title: 'Conseiller Service Client',
       type: 'Temps Plein',
-      salary: '42,000$ - 58,000$ / an + Commission',
       description: 'Soyez l\'ambassadeur de notre marque de luxe. Vous accueillerez nos clients, conseillerez sur nos services premium, gérerez les réservations et assurerez un service clientèle exceptionnel. Opportunité unique dans un environnement haut de gamme.',
       requirements: [
         'Minimum 2 ans d\'expérience en service client',
@@ -56,19 +59,20 @@ const CareersPage = () => {
     }
   ];
 
-  const benefits = [
-    { icon: <FaMoneyBillWave />, title: 'Salaire Compétitif', desc: 'Rémunération attractive avec bonus' },
-    { icon: <FaClock />, title: 'Horaires Flexibles', desc: 'Équilibre travail-vie personnelle' },
-    { icon: <FaGraduationCap />, title: 'Formation Continue', desc: 'Développement professionnel constant' },
-    { icon: <FaUsers />, title: 'Équipe Dynamique', desc: 'Environnement collaboratif' },
-    { icon: <FaAward />, title: 'Reconnaissance', desc: 'Valorisation de l\'excellence' },
-    { icon: <FaCheck />, title: 'Avantages Sociaux', desc: 'Package complet d\'avantages' }
-  ];
-
   return (
+    <>
     <div className="careers-page">
       {/* Hero Section */}
       <section className="careers-hero">
+        <div className="careers-hero-overlay"></div>
+        <video
+          className="careers-hero-bg"
+          src="/laveAutoVipClub.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
         <div className="careers-hero-content">
           <h1 className="careers-hero-title">REJOIGNEZ-NOUS</h1>
           <p className="careers-hero-subtitle">Faites Partie De L'Excellence</p>
@@ -78,24 +82,21 @@ const CareersPage = () => {
         </div>
       </section>
 
-      {/* Why Join Us Section */}
-      <section className="why-join">
+      {/* About Section */}
+      <section className="careers-about">
         <div className="container">
           <Reveal>
-            <h2 className="section-title">POURQUOI <span className="gold-text">NOUS REJOINDRE</span></h2>
+            <div className="careers-about-content">
+              <div className="careers-about-text">
+                <h2 className="section-title">À PROPOS DE <span className="gold-text">VIP CLUB AUTO</span></h2>
+                <p>VIP Club Auto est un centre d'esthétique automobile de luxe dédié à l'excellence. Fondé par des passionnés d'automobile, nous offrons des services de détaillage, polissage, lavage et traitement haut de gamme pour tous types de véhicules.</p>
+                <p>Notre équipe de techniciens certifiés met tout en œuvre pour restituer à votre véhicule son éclat d'origine — ou surpasser vos attentes. Chaque voiture est traitée avec le même soin et la même précision, peu importe le modèle.</p>
+              </div>
+              <div className="careers-about-image">
+                <img src="/MISC IV.png" alt="VIP Club Auto équipe" />
+              </div>
+            </div>
           </Reveal>
-          
-          <div className="benefits-grid">
-            {benefits.map((benefit, index) => (
-              <Reveal key={index} delay={index * 0.1}>
-                <div className="benefit-card">
-                  <div className="benefit-icon">{benefit.icon}</div>
-                  <h3>{benefit.title}</h3>
-                  <p>{benefit.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -109,70 +110,53 @@ const CareersPage = () => {
           <div className="jobs-list">
             {jobPostings.map((job, index) => (
               <Reveal key={job.id} delay={index * 0.2}>
-                <div className="job-posting-card">
+                <div
+                  className={`job-posting-card${expandedJob === job.id ? ' expanded' : ''}`}
+                  onClick={() => toggleJob(job.id)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === 'Enter' && toggleJob(job.id)}
+                >
                   <div className="job-image">
                     <img src={job.image} alt={job.title} />
                     <div className="job-badge">{job.type}</div>
                   </div>
-                  
+
                   <div className="job-content">
-                    <h3 className="job-title">{job.title}</h3>
-                    <div className="job-salary">{job.salary}</div>
-                    <p className="job-description">{job.description}</p>
-                    
-                    <div className="job-requirements">
-                      <h4>Exigences:</h4>
-                      <ul>
-                        {job.requirements.map((req, idx) => (
-                          <li key={idx}>
-                            <FaCheck className="check-icon" />
-                            {req}
-                          </li>
-                        ))}
-                      </ul>
+                    <div className="job-header">
+                      <h3 className="job-title">{job.title}</h3>
+                      <span className="job-toggle-icon">
+                        {expandedJob === job.id ? <FaChevronUp /> : <FaChevronDown />}
+                      </span>
                     </div>
-                    
-                    <a href="/#contact" className="btn btn-primary">Postuler Maintenant</a>
+
+                    {expandedJob === job.id && (
+                      <div className="job-details" onClick={(e) => e.stopPropagation()}>
+                        <p className="job-description">{job.description}</p>
+                        <div className="job-requirements">
+                          <h4>Exigences :</h4>
+                          <ul>
+                            {job.requirements.map((req, idx) => (
+                              <li key={idx}>
+                                <FaCheck className="check-icon" />
+                                {req}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <a
+                          href="/#contact"
+                          className="btn btn-primary"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          Postuler Maintenant
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
               </Reveal>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Culture Section */}
-      <section className="company-culture">
-        <div className="container">
-          <div className="culture-content">
-            <div className="culture-text">
-              <h2>NOTRE CULTURE D'ENTREPRISE</h2>
-              <p>
-                Chez VIP Club Auto, nous croyons que notre succès repose sur notre équipe exceptionnelle. 
-                Nous cultivons un environnement où la passion pour l'automobile rencontre l'excellence professionnelle.
-              </p>
-              <p>
-                Nous investissons dans notre équipe avec des formations continues, des opportunités de croissance, 
-                et un environnement de travail qui encourage l'innovation et la créativité.
-              </p>
-              <div className="culture-stats">
-                <div className="culture-stat">
-                  <div className="stat-num">15+</div>
-                  <div className="stat-label">Employés Passionnés</div>
-                </div>
-                <div className="culture-stat">
-                  <div className="stat-num">4.9/5</div>
-                  <div className="stat-label">Satisfaction Équipe</div>
-                </div>
-                <div className="culture-stat">
-                  <div className="stat-num">100%</div>
-                  <div className="stat-label">Formation Continue</div>
-                </div>
-              </div>
-            </div>
-            <div className="culture-image">
-              <img src="/MISC IV.png" alt="Notre Équipe" />
-            </div>
           </div>
         </div>
       </section>
@@ -186,6 +170,8 @@ const CareersPage = () => {
         </div>
       </section>
     </div>
+    <Footer />
+    </>
   );
 };
 

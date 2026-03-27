@@ -1,6 +1,7 @@
 .careers-page {
   width: 100%;
   background: #000000;
+}
 
 /* Careers Hero */
 .careers-hero {
@@ -8,30 +9,53 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0a0a0a 0%, #000000 100%);
-  padding: 8rem 2rem 4rem;
-  min-height: 40vh;
+  overflow: hidden;
+  padding: 12rem 2rem 6rem;
+  min-height: 50vh;
+}
+
+.careers-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.55) 50%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  z-index: 2;
+}
+
+.careers-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 
 .careers-hero-content {
+  position: relative;
+  z-index: 3;
   text-align: center;
   max-width: 750px;
 }
 
 .careers-hero-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 800;
-  color: #D4AF37;
+  color: #ffffff;
   margin-bottom: 0.8rem;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
   text-transform: uppercase;
 }
 
 .careers-hero-subtitle {
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(1rem, 2.5vw, 1.4rem);
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.85);
   font-weight: 300;
   letter-spacing: 2px;
   margin-bottom: 1.2rem;
@@ -40,7 +64,7 @@
 .careers-hero-desc {
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(0.9rem, 1.5vw, 1.05rem);
-  color: #B8B8B8;
+  color: rgba(255, 255, 255, 0.65);
   line-height: 1.7;
 }
 
@@ -103,6 +127,57 @@
   line-height: 1.6;
 }
 
+/* About Section */
+.careers-about {
+  padding: 5rem 0;
+  background: #000000;
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.careers-about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.careers-about-text .section-title {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.careers-about-text p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: #B8B8B8;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.careers-about-image {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.careers-about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .careers-about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .careers-about-text .section-title {
+    text-align: center;
+  }
+}
+
 /* Job Postings */
 .job-postings {
   padding: 5rem 0;
@@ -120,16 +195,18 @@
 
 .job-posting-card {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 280px 1fr;
   gap: 0;
   background: linear-gradient(135deg, #0a0a0a 0%, #111111 100%);
   border-radius: 16px;
   border: 1px solid rgba(212, 175, 55, 0.15);
   overflow: hidden;
-  transition: all 0.4s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
-.job-posting-card:hover {
+.job-posting-card:hover,
+.job-posting-card.expanded {
   border-color: rgba(212, 175, 55, 0.4);
   box-shadow: 0 12px 35px rgba(212, 175, 55, 0.15);
 }
@@ -165,7 +242,34 @@
 }
 
 .job-content {
-  padding: 2rem 2rem 2rem 2rem;
+  padding: 1.8rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.job-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.job-toggle-icon {
+  color: #D4AF37;
+  font-size: 1rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.job-details {
+  margin-top: 1.2rem;
+  animation: fadeSlideIn 0.3s ease;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .job-title {
@@ -173,15 +277,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: #D4AF37;
-  margin-bottom: 0.6rem;
-}
-
-.job-salary {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  color: #F4D03F;
-  font-weight: 600;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0;
 }
 
 .job-description {
@@ -327,21 +423,15 @@
     padding: 5rem 1rem 2rem;
     min-height: auto;
   }
-  .why-join,
   .job-postings,
-  .company-culture,
   .careers-cta {
     padding: 2.5rem 0;
-  }
-  .benefits-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
   }
   .job-posting-card {
     grid-template-columns: 1fr;
   }
   .job-image {
-    height: 120px;
+    height: 200px;
   }
 }
 
@@ -352,18 +442,7 @@
     padding-left: 0.5rem !important;
     padding-right: 0.5rem !important;
   }
-}
   .job-content {
     padding: 1.5rem;
-  }
-
-  .culture-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .culture-stats {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
   }
 }

@@ -13,7 +13,8 @@
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1100;
+  z-index: 1200;
+  position: relative;
 }
 .burger-bar {
   width: 28px;
@@ -28,36 +29,29 @@
   .burger-menu {
     display: flex;
   }
-  .nav-menu {
-    margin: 0;
-    gap: 2rem;
-  }
 }
 
 @media (max-width: 768px) {
   .burger-menu {
     display: flex;
-    position: absolute;
-    top: 2rem;
+    position: fixed;
+    top: 1.5rem;
     right: 2rem;
-  }
-  .nav-menu {
-    font-size: 1rem;
+    z-index: 1300;
   }
 }
 
 @media (max-width: 480px) {
-  .nav-menu {
-    font-size: 0.95rem;
-    padding: 4rem 1rem;
-    gap: 1.2rem;
+  .nav-menu li a,
+  .nav-menu li button.language-toggle {
+    font-size: 1.25rem !important;
   }
   .nav-logo img {
     height: 38px;
   }
   .nav-book-btn {
-    font-size: 0.95rem;
-    padding: 0.8rem 1.2rem !important;
+    font-size: 1.1rem;
+    padding: 0.9rem 2rem !important;
   }
 }
 /* Footer Socials */
@@ -305,26 +299,144 @@ body {
   transform: scale(1.05);
 }
 
+/* Desktop nav list */
+.nav-menu-desktop {
+  display: flex;
+  list-style: none;
+  gap: 5rem;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  margin: 0 5rem;
+}
+
+.nav-menu-desktop li a,
+.nav-menu-desktop li button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-menu-desktop li a:hover,
+.nav-menu-desktop li button:hover {
+  color: #D4AF37;
+}
+
+/* Restore gold Réserver button in desktop nav */
+.nav-menu-desktop li a.nav-book-btn {
+  background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 100%);
+  color: #000000;
+  border-radius: 50px;
+  padding: 1rem 2.5rem;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
+  border: none;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+}
+
+.nav-menu-desktop li a.nav-book-btn:hover {
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(212, 175, 55, 0.55);
+}
+
+/* Mobile overlay — rendered outside <nav> to avoid transform containing-block bug */
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.97);
+  backdrop-filter: blur(20px);
+  z-index: 1100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.mobile-nav-list li {
+  text-align: center;
+  width: 100%;
+}
+
+.mobile-nav-list li a,
+.mobile-nav-list li button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.mobile-nav-list li a:hover,
+.mobile-nav-list li button:hover {
+  color: #D4AF37;
+}
+
+/* Restore gold Réserver button inside mobile overlay */
+.mobile-nav-list .nav-book-btn,
+.mobile-nav-list li a.nav-book-btn {
+  background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 100%) !important;
+  color: #000000 !important;
+  border-radius: 50px;
+  padding: 1rem 2.5rem !important;
+  font-size: 1.1rem;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+  border: none;
+}
+
+.mobile-nav-list .nav-book-btn:hover,
+.mobile-nav-list li a.nav-book-btn:hover {
+  color: #000000 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(212, 175, 55, 0.5);
+}
+
 /* Responsive Navigation */
 @media (max-width: 768px) {
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    height: 100vh;
-    width: 70%;
-    max-width: 300px;
-    flex-direction: column;
-    background: rgba(0, 0, 0, 0.98);
-    backdrop-filter: blur(20px);
-    padding: 5rem 2rem;
-    gap: 2rem;
-    transition: right 0.5s ease;
-    border-left: 1px solid rgba(212, 175, 55, 0.2);
+  .nav-menu-desktop {
+    display: none;
   }
 
-  .nav-menu.active {
-    right: 0;
+  .mobile-nav-overlay {
+    display: flex;
   }
 
   .nav-logo img {

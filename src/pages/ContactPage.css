@@ -3,38 +3,57 @@
   background: #000000;
 }
 
-/* Boutique Coming Soon */
-.boutique-coming-soon {
+/* Boutique Hero */
+.boutique-hero {
+  position: relative;
   min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8rem 2rem;
+  overflow: hidden;
 }
 
-.coming-soon-content {
+.boutique-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.boutique-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.boutique-hero-content {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  max-width: 600px;
+  padding: 2rem;
 }
 
-.coming-soon-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 8vw, 5rem);
+.boutique-hero-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 800;
-  color: #D4AF37;
+  color: #ffffff;
   letter-spacing: 8px;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
 }
 
-.coming-soon-divider {
+.boutique-hero-divider {
   width: 80px;
   height: 2px;
   background: linear-gradient(90deg, transparent, #D4AF37, transparent);
   margin: 0 auto 1.5rem;
 }
 
-.coming-soon-text {
+.boutique-hero-subtitle {
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(1.2rem, 3vw, 1.8rem);
   color: #ffffff;
@@ -44,24 +63,10 @@
   margin-bottom: 1rem;
 }
 
-.coming-soon-subtitle {
+.boutique-hero-text {
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(0.9rem, 2vw, 1.05rem);
-  color: #B8B8B8;
+  color: rgba(255, 255, 255, 0.7);
   font-weight: 300;
   line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-  .boutique-coming-soon {
-    min-height: 70vh;
-    padding: 7rem 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .boutique-coming-soon {
-    min-height: 50vh;
-    padding: 3rem 0.5rem;
-  }
 }

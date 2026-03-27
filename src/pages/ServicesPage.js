@@ -1,53 +1,32 @@
 import React from 'react';
 import { useLanguage } from '../App';
 import Services from '../components/Services';
+import Footer from '../components/Footer';
 import './ServicesPage.css';
 
 const ServicesPage = () => {
   const { t } = useLanguage();
   return (
+    <>
     <div className="services-page">
       {/* Hero Header */}
       <section className="services-hero">
         <div className="services-hero-overlay"></div>
-        <img src="/MISC TIRES.png" alt="Services VIP" className="services-hero-bg" />
+        <video
+          className="services-hero-bg"
+          src="/laveAutoVipClub.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
         <div className="services-hero-content">
-          <h1 className="services-hero-title">{t.services.title} {t.services.titleGold}</h1>
-          <p className="services-hero-subtitle">{t.services.subtitle}</p>
+          <h1 className="services-hero-title">{t.services.subtitle}</h1>
         </div>
       </section>
 
       {/* Services Component */}
       <Services />
-
-      {/* Premium Process Section */}
-      <section className="premium-process">
-        <div className="container">
-          <h2 className="process-title">{t.services.processTitle || 'NOTRE PROCESSUS'} <span className="gold-text">VIP</span></h2>
-          <div className="process-steps">
-            <div className="process-step">
-              <div className="step-number">01</div>
-              <h3>{t.services.processStep1Title || 'Inspection Complète'}</h3>
-              <p>{t.services.processStep1Desc || 'Évaluation détaillée de votre véhicule pour identifier les besoins spécifiques.'}</p>
-            </div>
-            <div className="process-step">
-              <div className="step-number">02</div>
-              <h3>{t.services.processStep2Title || 'Traitement Personnalisé'}</h3>
-              <p>{t.services.processStep2Desc || 'Application de nos techniques premium adaptées à votre véhicule.'}</p>
-            </div>
-            <div className="process-step">
-              <div className="step-number">03</div>
-              <h3>{t.services.processStep3Title || 'Contrôle Qualité'}</h3>
-              <p>{t.services.processStep3Desc || 'Vérification méticuleuse pour garantir une finition parfaite.'}</p>
-            </div>
-            <div className="process-step">
-              <div className="step-number">04</div>
-              <h3>{t.services.processStep4Title || 'Livraison Excellence'}</h3>
-              <p>{t.services.processStep4Desc || 'Présentation de votre véhicule dans un état immaculé.'}</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Benefits Section */}
       <section className="service-benefits">
@@ -72,6 +51,8 @@ const ServicesPage = () => {
         </div>
       </section>
     </div>
+    <Footer />
+    </>
   );
 };
 

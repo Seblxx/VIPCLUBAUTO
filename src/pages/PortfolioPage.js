@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Reveal from '../components/Reveal';
+import Footer from '../components/Footer';
 import './PortfolioPage.css';
 
 const PortfolioPage = () => {
@@ -23,6 +24,15 @@ const PortfolioPage = () => {
     <div className="portfolio-page">
       {/* Hero Section */}
       <section className="portfolio-hero">
+        <div className="portfolio-hero-overlay"></div>
+        <video
+          className="portfolio-hero-bg"
+          src="/laveAutoVipClub.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
         <div className="portfolio-hero-content">
           <h1 className="portfolio-hero-title">NOTRE PORTFOLIO</h1>
           <p className="portfolio-hero-subtitle">Excellence & Perfection Dans Chaque Réalisation</p>
@@ -95,30 +105,6 @@ const PortfolioPage = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="portfolio-stats">
-        <div className="container">
-          <div className="stats-grid">
-            <div className="stat-item">
-              <div className="stat-number">1000+</div>
-              <div className="stat-label">Véhicules Traités</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">100%</div>
-              <div className="stat-label">Satisfaction Client</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">5★</div>
-              <div className="stat-label">Note Moyenne</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">10+</div>
-              <div className="stat-label">Années d'Expérience</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Lightbox Modal */}
       {selectedImage && (
         <div className="lightbox" onClick={() => setSelectedImage(null)}>
@@ -140,6 +126,8 @@ const PortfolioPage = () => {
           <a href="/rendez-vous" className="btn btn-primary">Réserver Un Service</a>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };

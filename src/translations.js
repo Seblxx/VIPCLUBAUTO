@@ -23,7 +23,7 @@ export const translations = {
     services: {
       title: "NOS",
       titleGold: "SERVICES",
-      subtitle: "L'excellence dans chaque détail",
+      subtitle: "Services",
       list: [
         {
           title: "CIRE PERFECTION WAX 324 AUTO",
@@ -478,7 +478,7 @@ export const translations = {
     services: {
       title: "OUR",
       titleGold: "SERVICES",
-      subtitle: "Excellence in every detail",
+      subtitle: "Services",
       list: [
         {
           title: "Premium Exterior Wash",

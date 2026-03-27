@@ -1,6 +1,7 @@
 .services-page {
   width: 100%;
   background: #000000;
+}
 
 /* Services Hero */
 .services-hero {
@@ -34,16 +35,6 @@
   height: 100%;
   object-fit: cover;
   z-index: 1;
-  animation: slowZoom 20s ease-in-out infinite alternate;
-}
-
-@keyframes slowZoom {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.1);
-  }
 }
 
 .services-hero-overlay {
@@ -69,12 +60,12 @@
 }
 
 .services-hero-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 800;
-  color: #D4AF37;
+  color: #ffffff;
   margin-bottom: 1rem;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
   text-transform: uppercase;
   animation: fadeInUp 1s ease;
 }
@@ -260,5 +251,4 @@
   .benefits-content {
     gap: 1rem;
   }
-}
 }

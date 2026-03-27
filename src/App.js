@@ -82,29 +82,49 @@ function App() {
               <Link to="/" className="nav-logo" onClick={() => { replayIntro(); handleMenuClose(); }}>
                 <img src="/logo-lave-auto-vip-club-scaled.png" alt="VIP Club Auto" />
               </Link>
+              <ul className="nav-menu-desktop">
+                <li><Link to="/services">{t.nav.services}</Link></li>
+                <li><Link to="/portfolio">{t.nav.portfolio}</Link></li>
+                <li><Link to="/careers">{t.nav.careers}</Link></li>
+                <li><Link to="/boutique">{t.nav.contact}</Link></li>
+                <li>
+                  <Link to="/rendez-vous" className="nav-book-btn">
+                    {language === 'fr' ? 'Réserver' : 'Book'}
+                  </Link>
+                </li>
+                <li>
+                  <button className="language-toggle" onClick={toggleLanguage}>
+                    {language === 'fr' ? 'EN' : 'FR'}
+                  </button>
+                </li>
+              </ul>
               <button className="burger-menu" aria-label="Open menu" aria-expanded={menuOpen} onClick={handleMenuToggle}>
                 <span className="burger-bar"></span>
                 <span className="burger-bar"></span>
                 <span className="burger-bar"></span>
               </button>
-              <ul className={`nav-menu${menuOpen ? ' active' : ''}`}> 
-                <li><Link to="/services" onClick={handleMenuClose}>{t.nav.services}</Link></li>
-                <li><Link to="/portfolio" onClick={handleMenuClose}>{t.nav.portfolio}</Link></li>
-                <li><Link to="/careers" onClick={handleMenuClose}>{t.nav.careers}</Link></li>
-                <li><Link to="/boutique" onClick={handleMenuClose}>{t.nav.contact}</Link></li>
-                <li>
-                  <Link to="/rendez-vous" className="nav-book-btn" onClick={handleMenuClose}>
-                    {language === 'fr' ? 'Réserver' : 'Book'}
-                  </Link>
-                </li>
-                <li>
-                  <button className="language-toggle" onClick={() => { toggleLanguage(); handleMenuClose(); }}>
-                    {language === 'fr' ? 'EN' : 'FR'}
-                  </button>
-                </li>
-              </ul>
             </div>
           </nav>
+
+          {/* Mobile Menu Overlay — outside <nav> so position:fixed isn't affected by navbar's transform */}
+          <div className={`mobile-nav-overlay${menuOpen ? ' active' : ''}`} onClick={handleMenuClose}>
+            <ul className="mobile-nav-list" onClick={e => e.stopPropagation()}>
+              <li><Link to="/services" onClick={handleMenuClose}>{t.nav.services}</Link></li>
+              <li><Link to="/portfolio" onClick={handleMenuClose}>{t.nav.portfolio}</Link></li>
+              <li><Link to="/careers" onClick={handleMenuClose}>{t.nav.careers}</Link></li>
+              <li><Link to="/boutique" onClick={handleMenuClose}>{t.nav.contact}</Link></li>
+              <li>
+                <Link to="/rendez-vous" className="nav-book-btn" onClick={handleMenuClose}>
+                  {language === 'fr' ? 'Réserver' : 'Book'}
+                </Link>
+              </li>
+              <li>
+                <button className="language-toggle" onClick={() => { toggleLanguage(); handleMenuClose(); }}>
+                  {language === 'fr' ? 'EN' : 'FR'}
+                </button>
+              </li>
+            </ul>
+          </div>
 
           <Routes>
             <Route path="/" element={<HomePage />} />
